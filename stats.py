@@ -9,8 +9,6 @@ real_nums = []
 for num in base_nums:
 	real_nums.append(randint(0,70))
 real_nums.sort()
-# print(real_nums)
-# print(len(real_nums))
 
 ###create classes and limits based on the returned width####
 
@@ -47,8 +45,6 @@ for num in real_nums:
 	elif num >= fourth_limit and num < fifth_limit:
 		fifth_class.append(num)
 
-# print(first_class)
-
 class_frequency = {
 
 	"first_class_frequency": [first_lower_lim, first_limit, first_class],
@@ -59,10 +55,28 @@ class_frequency = {
 
 	}
 
-for key in class_frequency:
-	print(
-		f"{len(class_frequency[key][2])} items between {class_frequency[key][0]} and {class_frequency[key][1]}: {class_frequency[key][2]}")
+def calc_mean(class_list):
+	class_mean = sum(class_list)/len(class_list)
+	print(f'the mean is: {class_mean}')
 
+def calc_median(class_list):
+	if len(class_list) % 2 != 0:
+		class_median = class_list[int((len(class_list) + 1)/2) -1]
+	else:
+		class_median = (class_list[int(len(class_list)/2) -1] + class_list[int((len(class_list)/2))]) / 2
+	print(f'the median is: {class_median}')
 
+print(real_nums)
+print(" ")
+print("Below is the frequency distribution and measures of center, based on the above data set")
+
+amounts = 0
 for key in class_frequency:
-	print(f'{int(class_frequency[key][0])} - {int(class_frequency[key][1])}: {len(class_frequency[key][2])}')
+	print('______________________________________')
+	amounts += len(class_frequency[key][2])
+	print(class_frequency[key][2])
+	print(f'number of values between {int(class_frequency[key][0])} - {int(class_frequency[key][1])-1}: {len(class_frequency[key][2])}')
+	calc_mean(class_frequency[key][2])
+	calc_median(class_frequency[key][2])
+
+print(f'{amounts} total data values')
