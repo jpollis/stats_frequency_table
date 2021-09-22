@@ -4,10 +4,10 @@
 
 from random import randint
 
-base_nums = list(range(70))
+base_nums = list(range(100))
 real_nums = []
 for num in base_nums:
-	real_nums.append(randint(0,70))
+	real_nums.append(randint(0,99))
 real_nums.sort()
 
 ###create classes and limits based on the returned width####
@@ -66,14 +66,12 @@ def calc_median(class_list):
 		class_median = (class_list[int(len(class_list)/2) -1] + class_list[int((len(class_list)/2))]) / 2
 	print(f'the median is: {class_median}')
 
-print(real_nums)
-print(" ")
-print("Below is the frequency distribution and measures of center, based on the above data set")
+print(f"{real_nums}\n \nBelow is the frequency distribution and measures of center, based on the above data set")
 
 amounts = 0
 for key in class_frequency:
-	print('______________________________________')
 	amounts += len(class_frequency[key][2])
+	print('______________________________________')
 	print(class_frequency[key][2])
 	print(f'number of values between {int(class_frequency[key][0])} - {int(class_frequency[key][1])-1}: {len(class_frequency[key][2])}')
 	calc_mean(class_frequency[key][2])
