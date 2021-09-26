@@ -74,7 +74,9 @@ for key in class_frequency:
 	print('______________________________________')
 	print(class_frequency[key][2])
 	print(f'number of values between {int(class_frequency[key][0])} - {int(class_frequency[key][1])-1}: {len(class_frequency[key][2])}')
-	calc_mean(class_frequency[key][2])
-	calc_median(class_frequency[key][2])
+	# calc_mean(class_frequency[key][2])
+	# calc_median(class_frequency[key][2])
 
-print(f'{amounts} total data values')
+print(f' \n{amounts} total data values')
+calc_mean(real_nums)
+calc_median(real_nums)
